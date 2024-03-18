@@ -8,6 +8,11 @@
     position: relative;
 }
 
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.showactive{
+    color: green;
+    border-bottom: 2px solid green;
+}
+
 .text-success{
     font-weight: 500;
 }
@@ -48,7 +53,6 @@
 
 .nav-link:hover{
     color: green;
-    border-bottom: 2px solid green;
 } 
 
 .carousel-item{

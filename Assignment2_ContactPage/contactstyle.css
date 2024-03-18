@@ -4,11 +4,22 @@
     font-family: "Montserrat";
 }
 
-.header{
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.showactive{
+    color: green;
+    border-bottom: 2px solid green;
+}
+
+header{
     position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.2)), url('img/nature.jpeg');
+    background-size: cover;
+ 
 }
 
 .btn-success{
+    margin-top: 3px;
     margin-left: 20px;
     background-color: green;
     font-size: 15px;
@@ -44,39 +55,35 @@
 
 .nav-link:hover{
     color: green;
-    border-bottom: 2px solid green;
 } 
 
-.main{
-    max-width: 650px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+.col-md-6{
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    border-radius: 50px;
+    margin-top: -10px;
+}
+
+.col-md-5{
+    padding-top: 100px; 
+    margin-top: -10px;
+    margin-left: 50px;
+}
+
+.self1{
     text-align: center;
     color: white;
 }
 
-.main span{
-    letter-spacing: 5px;
-}
-
-.main h1{
-    font-size: 3.5em;
-}
-
-.main a{
-    display: inline-block;
-    text-decoration: none;
-    background-color: rgb(154, 100, 25);
+.self2{
+    text-align: justify;
     color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    letter-spacing: 3px;
 }
 
-.main a:hover{
-    background-color: white;
-    color :rgb(154, 100, 25);
-    transform: scale(1.2);   
+.text-center{
+    color: white;
+}
+
+.form-group{
+    color: white;
 }
