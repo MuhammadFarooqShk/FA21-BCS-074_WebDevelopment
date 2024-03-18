@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TouristSpot - Contact</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="contactstyle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container">
+        
+            <a class="navbar-brand" href="#">Tourist<span class="text-success">Spot</span></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="landingpage.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="api.html">Ajax API</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#packages">Packages</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="contact.html">Contact</a>
+                  </li>
+                  <button type="button" class="btn btn-success">Sign In/Up</button>
+              </div>
+            </div>
+          </nav>
+
+          <br><br><br>
+          <div class="form_container">
+            <div class="container mt-5">
+            <div class="row justify-content-left">
+              <div class="col-md-6">
+                <h2 class="text-center mb-4">Please Fill The Form</h2>
+                <form id="contactForm" method="post">
+                  <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                    <div class="invalid-feedback">Please enter your name.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Enter your message"></textarea>
+                    <div class="invalid-feedback">Please enter your message.</div>
+                  </div>
+                  <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+              </div>
+              <div class="col-md-5">
+                <h1 class="self1">Contact US</h1>
+                <p class="self2">Have questions or feedback? Reach out to us via email at <strong>touristspot@gmail.com</strong> or fill out the contact form. We're here to assist you every step of the way!</p>
+              </div>
+            </div>
+          </div> 
+          </div>          
+    </header>
+</body>
+</html>
