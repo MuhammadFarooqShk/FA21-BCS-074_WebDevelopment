@@ -1,8 +1,37 @@
 $(function(){
     loadStories();
     $("#stories").on("click",".btn-danger",handleDelete)
+    $("#stories").on("click",".btn-warning",handleUpdate)
     $("#addBtn").click(addStory);
+    $("#updateSave").click(function(){
+        
+    var id = $("#updateId").val();
+    var title = $("#updateTitle").val();
+    var content = $("#updateContent").val();
+        $.ajax({
+            url: "https://usmanlive.com/wp-json/api/stories/" + id,
+            data:{title,content},
+            method: "PUT",
+            success: function(){
+                loadStories();
+                $("#updateModal").modal("hide");
+            }
+        });
+    });
 });
+
+function handleUpdate(){
+    var btn = $(this);
+    var parentDiv = btn.closest(".story");
+    let id = parentDiv.attr("data-id");
+
+    $.get("https://usmanlive.com/wp-json/api/stories/" + id,function(response){
+        $("#updateId").val(response.id);
+        $("#updateTitle").val(response.title);
+        $("#updateContent").val(response.content);
+        $("#updateModal").modal("show");
+    });    
+}
 
 function addStory(){
     var title = $("#title").val();
