@@ -74,7 +74,7 @@ function loadStories(){
             stories.empty();
             for(var i = 0;i < response.length;i++){
                 var sto = response[i];
-                stories.append(`<div class="story" data-id="${sto.id}"><h3>${sto.title}</h3><p>${sto.content}</p><button id="ediBtn" class="btn btn-warning btn-sm float-right">Edit</button><button id="delBtn" class="btn btn-danger btn-sm float-right">Delete</button></div>`);
+                stories.append(`<div class="story" data-id="${sto.id}"><h3>${sto.title}</h3><p>${sto.content}</p><button id="ediBtn" class="btn btn-warning btn-sm">Edit</button><button id="delBtn" class="btn btn-danger btn-sm">Delete</button></div>`);
             }
         }
     });
