@@ -4,7 +4,8 @@ const logo = document.getElementById('m2111');
   logo.addEventListener('mouseover', function(event) {
     const target = event.target;
     if (target.tagName === 'IMG') {
-        navstyle.innerHTML = target.alt;
+        navstyle.append = target.alt;
+        navstyle.style.display = 'block';
     }
   });
 
