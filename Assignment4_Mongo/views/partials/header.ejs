@@ -14,15 +14,21 @@
             <a class="nav-link" href="/api-example">Ajax API</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#packages">Packages</a>
+            <a class="nav-link" href="/product">Packages</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="/about">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/contact-us">Contact</a>
           </li>
-          <button type="button" class="btn btn-success">Sign In/Up</button>
+          <% if(!user){ %>
+          <a href="/users/login" class="btn btn-success">Sign In</a>
+          
+          <a href="/users/signup" class="btn btn-success">Sign Up</a>
+          <% }else{ %>
+            <a href="/users/logout" class="btn btn-success">Logout</a>
+            <% } %>
       </div>
     </div>
   </nav>
