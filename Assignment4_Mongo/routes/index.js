@@ -26,6 +26,11 @@ router.get('/product',authmid, function(req, res, next) {
 router.get('/about',authmid, function(req, res, next) {
   res.render('about');
 });
+// added
+router.get('/landingpage', authmid, function(req, res, next) {
+  res.render('landingpage', { items: global.items });
+});
+
 
 
 router.post("/package", (req, res) => {
