@@ -1,0 +1,24 @@
+<head>
+  <link rel="stylesheet" href="jqstyles3.css">
+</head>
+     
+
+<h1 class="self1">Packages<br><span>Our Best Price Packages</span></h1>    </header>
+    <br><br>
+<div class="container">
+    <div class="row">
+      <% items.forEach(function(item) { %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <img src="<%= item.img %>" style=" height: 200px; object-fit: cover;" alt="Tour Image">
+            <div class="card-body">
+              <h5 class="card-title"><%= item.source %> to <%= item.destination %></h5>
+              <p class="card-text" style="text-align: justify;"><%= item.description %></p>
+              <p class="card-text font-weight-bold" style="text-align: left;color: green;">$<%= item.price %></p>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+  <br>
