@@ -5,13 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+     .btn-success:hover {
+      background-color: white;
+      color: green;
+    }
+  </style>
 </head>
-<body>
+<body style="background-color: gray;">
   <div class="container mt-5">
     <div class="row justify-content-center">
+      <div class="col-md-12 text-center">
+        <a class="navbar-brand" href="" style="color: white;font-size: 40px;">Tourist<span class="text-success" style="font-size: 40px;">Spot</span></a>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-3">
       <div class="col-md-6">
         <div class="card">
-          <div class="card-header bg-primary text-white">
+          <div class="card-header text-white" style="background-color: green;">
             <h4 class="mb-0">Login</h4>
           </div>
           <div class="card-body">
@@ -24,7 +35,7 @@
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" name="password" required>
               </div>
-              <button type="submit" class="btn btn-primary btn-block">Login</button>
+              <button type="submit" class="btn btn-success" style="border-radius: 50px;">Login</button>
             </form>
           </div>
         </div>

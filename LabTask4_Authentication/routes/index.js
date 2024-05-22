@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const authmid=require('../middlewares/auth')
 const midware=require('../middlewares/main-middleware')
-/* GET home page. */
+
 router.get('/',midware,authmid, function(req, res, next) {
   res.render('landingpage');
 });
@@ -17,6 +17,10 @@ router.get('/contact-us',authmid ,function(req, res, next) {
 
 router.get('/api-example',authmid ,function(req, res, next) {
   res.render('api');
+});
+
+router.get('/add',authmid ,function(req, res, next) {
+  res.render('add');
 });
 
 router.get('/product',authmid, function(req, res, next) {
