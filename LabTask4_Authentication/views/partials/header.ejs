@@ -27,6 +27,7 @@
           
           <a href="/users/signup" class="btn btn-success">Sign Up</a>
           <% }else{ %>
+            <h5 style="color: white;margin-top: 7px;">Welcome <%= user.name %></h5>
             <a href="/users/logout" class="btn btn-success">Logout</a>
             <% } %>
       </div>
