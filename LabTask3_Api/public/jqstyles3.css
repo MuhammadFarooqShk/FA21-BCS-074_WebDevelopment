@@ -64,6 +64,19 @@ header{
     transform: scale(1.1);
 }
 
+.btn-prim{
+    background-color: gray;
+    font-size: 15px;
+    border-radius: 50px;
+    transition: all 0.5s ease-in; 
+}
+
+.btn-prim:hover{
+    color: gray;
+    background-color: white;
+    transform: scale(1.1);
+}
+
 .btn-warning{
     color: white;
     position: relative;

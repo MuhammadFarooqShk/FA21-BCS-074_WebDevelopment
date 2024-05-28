@@ -1,8 +1,21 @@
 <head>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .highlight-background {
+      background-color: rgb(196, 196, 196);
+      padding: 20px;
+    }
+    .self1{
+
+width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+color: green; 
+}
+  </style>
 </head>
-
-
 
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -68,46 +81,44 @@
   </div>
 </div>
 
-<div class="container p-10">
-  <% 
-    var itemsPerPage = 3;
-    var pageCount = Math.ceil(items.length / itemsPerPage);
-    for (var i = 0; i < pageCount; i++) { 
-      var startIndex = i * itemsPerPage;
-      var endIndex = Math.min((i + 1) * itemsPerPage, items.length);
-  %>
-    <% if (i > 0) { %>
-      <div class="pagination-page d-none" data-page="<%= i %>">
-    <% } else { %>
-      <div class="pagination-page" data-page="<%= i %>">
-    <% } %>
-      <div class="row">
-        <% for (var j = startIndex; j < endIndex; j++) { %>
-          <div class="col-md-4 mb-4">
-            <div class="card h-100">
-              <img src="<%= items[j].img %>" style="height: 200px; object-fit: cover;" alt="Tour Image">
-              <div class="card-body">
-                <h5 class="card-title"><%= items[j].source %> to <%= items[j].destination %></h5>
-                <p class="card-text"><%= items[j].description %></p>
-                <p class="card-text text-primary font-weight-bold">$<%= items[j].price %></p>
-              </div>
-            </div>
-          </div>
-        <% } %>
+<div class="container-fluid" style="display: flex;flex-direction: row;justify-content: center;align-items: center;">
+</div>
+<br><br>
+
+<div class="highlight-background">
+  <h1 class="self1">Our Travel Packages</h1>
+  <br>
+  <div class="row">
+    <% let count = 0; %>
+<% items.forEach(function(item) { %>
+  <% if (count < 3) { %>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <img src="<%= item.img %>" style="height: 200px; object-fit: cover;" alt="Tour Image">
+        <div class="card-body">
+          <h5 class="card-title"><%= item.source %> to <%= item.destination %></h5>
+          <p class="card-text font-weight-bold" style="text-align: left;color: green;">Rs. <%= item.price %></p>
+          <p class="card-text" style="text-align: justify;"><%= item.description %></p>
+        </div>
       </div>
     </div>
+    <% count++; %>
   <% } %>
+<% }); %>
+  </div>
+  <% if (user && user.admin === true) { %>
+    <div style="text-align: center;">
+      <a href="/product" style="color: green;">Click here to Add, Update, Delete or See All Packages>></a>
+    </div>
+    <% }
+    else{ %>
+      <div style="text-align: center;">
+      <a href="/product" style="color: green;">Click here to See All Packages>></a>
+      </div>
+      <%}
+    %>
+
 </div>
-
-<nav aria-label="Page navigation" style="display: flex;justify-content: center;align-items: center;">
-  <ul class="pagination">
-    <% for (var k = 0; k < pageCount; k++) { %>
-      <li class="page-item <%= k === 0 ? 'active' : '' %>"><a class="page-link" href="/product" data-page="<%= k %>"><%= k + 1 %></a></li>
-    <% } %>
-  </ul>
-</nav>
-
-
 
 <div class="card mb-3" style="padding: 50px; border: none;">
   <div class="row g-0">

@@ -3,7 +3,7 @@ var router = express.Router();
 const bcrypt = require("bcryptjs");
 const User=require('../models/user');
 const authmid=require('../middlewares/auth')
-/* GET users listing. */
+
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
   next();
@@ -32,7 +32,7 @@ router.post("/signup", async (req, res) => {
       number: req.body.number,
     });
     await user.save();
-    return res.redirect("/users/signup")
+    return res.redirect("/users/login")
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Failed to create user" });

@@ -1,34 +1,44 @@
 $(document).ready(validationBinding);
 
-function validationBinding(){
-    $('#submit_btn').click(function(e){
-        var name = document.getElementById('name').value.trim();
-        var message = document.getElementById('message').value.trim();
-        var email = document.getElementById('email').value.trim();
-        var error = false;
+function validationBinding() {
+  $('#contactForm').submit(function(e) {
+    e.preventDefault(); 
 
-        if (name === '') {
-            alert("Please Enter Name!");
-            error = true;
-        } else if (email === '') {
-            alert("Please Enter Email!");
-             error = true;
-        } else if (email.indexOf('@') === -1 || email.indexOf(".com") === -1) {
-             alert("Please Enter a Valid Email Address!");
-             error = true;
-        } else if (message === '') {
-            alert("Please Enter Message!");
-            error = true;
+    var name = $('#name').val().trim();
+    var message = $('#message').val().trim();
+    var email = $('#email').val().trim();
+    var error = false;
+
+    if (name === '') {
+      alert("Please Enter Name!");
+      error = true;
+    } else if (email === '') {
+      alert("Please Enter Email!");
+      error = true;
+    } else if (email.indexOf('@') === -1 || email.indexOf(".com") === -1) {
+      alert("Please Enter a Valid Email Address!");
+      error = true;
+    } else if (message === '') {
+      alert("Please Enter Message!");
+      error = true;
+    }
+
+    if (!error) {
+      $.ajax({
+        url: '/submitContact',
+        method: 'POST',
+        data: { name, email, message },
+        success: function(response) {
+          alert(response); 
+          $('#name').val('');
+          $('#email').val('');
+          $('#message').val('');
+        },
+        error: function(xhr, status, error) {
+          console.error('Error submitting form:', error);
+          alert('An error occurred. Please try again later.');
         }
-
-        if (!error) {
-            document.getElementById('name').value = '';
-            document.getElementById('message').value = '';
-            document.getElementById('email').value = '';
-            alert("Form Submitted Successfully");
-            e.preventDefault();
-        } else {
-            e.preventDefault();
-        }   
-    });
+      });
+    }
+  });
 }
