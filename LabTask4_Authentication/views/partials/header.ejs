@@ -27,6 +27,11 @@
               <a class="nav-link" href="/contact-us">Contact</a>
             </li>  
           <% } %>
+          <% if (user && user.admin === true) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/contacting">Contact</a>
+            </li>  
+          <% } %>
           <% if(!user){ %>
           <a href="/users/login" class="btn btn-success">Sign In</a>
           

@@ -17,6 +17,16 @@ router.get('/contact-us',authmid ,function(req, res, next) {
   res.render('contact');
 });
 
+router.get('/contacting',authmid, async (req, res) => {
+  try {
+      const contacts = await Contact.find();
+      res.render('contacting', { contacts });
+  } catch (err) {
+      console.error("Error fetching contacts: ", err);
+      res.status(500).send("Server Error");
+  }
+});
+
 router.get('/cv',authmid ,function(req, res, next) {
   res.render('cv',{layout:false});
 });
