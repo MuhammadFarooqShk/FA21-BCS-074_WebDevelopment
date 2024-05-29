@@ -50,11 +50,11 @@ router.post("/login",async (req,res)=>{
     const password=await bcrypt.compare(req.body.password,user.password)
 
     if(!password){
-      res.redirect("/users/login")
+      return res.redirect("/users/login")
     }
 
   }
-  else res.redirect("/users/login")
+  else return res.redirect("/users/login")
   req.session.user=user
 
   return res.redirect("/")
