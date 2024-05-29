@@ -66,13 +66,25 @@ color: green;
   <div class="row g-0">
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Contact Us to Book Packages Now</h5>
+        <% if (!user || user.admin === false) { %>
+          <h5 class="card-title">Contact Us to Book Packages Now</h5>
+          <% } %>
+        <% if (user && user.admin === true) { %>
+          <h5 class="card-title">View Users Contact Us Messages</h5>
+        <% } %>
         <p class="card-text" style="margin-bottom: 20px; text-align: justify;">
           Want to book our packages or have questions or need assistance? Don't hesitate to reach out to us! At TouristSpot, we're dedicated to providing exceptional customer service and ensuring your travel experience is smooth and enjoyable from start to finish. Our knowledgeable team is here to help you plan your dream vacation, book your tours, answer any inquiries you may have, and provide support throughout your journey. Contact us today and let us make your travel dreams a reality.
         </p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <a href="/contact-us" class="btn btn-success" style="margin-left: -5px;">Learn More</a>
-        </div>
+        <% if (!user || user.admin === false) { %>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a href="/contact-us" class="btn btn-success" style="margin-left: -5px;">Learn More</a>
+          </div>  
+        <% } %>
+        <% if (user && user.admin === true) { %>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a href="/contacting" class="btn btn-success" style="margin-left: -5px;">View Messages</a>
+          </div>
+        <% } %>
       </div>
     </div>
     <div class="col-md-4">
