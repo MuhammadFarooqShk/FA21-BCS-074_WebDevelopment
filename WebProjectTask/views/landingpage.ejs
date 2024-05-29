@@ -152,3 +152,26 @@ color: green;
 </div>
 
 <br>
+<div class="highlight-background">
+  <h1 class="self1">Featured Products</h1>
+  <div class="container-fluid" style="width: 100%;display: flex;flex-direction: row;justify-content: center;align-items: center;">
+    <a href="/visited-prod" class="btn btn-success" style="margin-left: -5px;">View Visited Products</a>
+  </div>
+  <br>
+  <div class="row">
+    <% featuredProducts.forEach(function(product) { %>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title"><%= product.name %>
+            </h5>
+            <p class="card-text"><%= product.description %></p>
+            <p class="card-text font-weight-bold">Price: $<%= product.price %></p>
+            <p class="card-text">Category: <%= product.category %></p>
+            <a href="/prod/<%= product._id %>" class="btn btn-success">View All</a>
+            </div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</div>

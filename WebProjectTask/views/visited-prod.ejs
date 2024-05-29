@@ -1,0 +1,25 @@
+<head>
+    <link rel="stylesheet" href="jqstyles2.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+            
+  <h1 class="self1">Visited Products</h1></header>
+      <br>
+
+      <div class="container mt-5">
+        <div class="row">
+          <% visitedProducts.forEach(product => { %>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title"><%= product.name %></h5>
+                  <p class="card-text text-justify"><strong>Description:</strong> <%= product.description %></p>
+                  <p class="card-text text-justify"><strong>Price:</strong> $<%= product.price %></p>
+                  <p class="card-text text-justify"><strong>Category:</strong> <%= product.category %></p>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+  <br>

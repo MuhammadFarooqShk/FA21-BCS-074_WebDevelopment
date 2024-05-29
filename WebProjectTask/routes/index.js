@@ -3,10 +3,78 @@ var router = express.Router();
 const authmid=require('../middlewares/auth')
 const midware=require('../middlewares/main-middleware')
 const Products = require('../models/products');
+const NewProduct = require('../models/newproduct');
+
 const Contact = require('../models/contact');
 
-router.get('/',midware,authmid, function(req, res, next) {
+router.get('/',midware,authmid, async function(req, res, next) {
+  let newproduct = await NewProduct.find()
+  try {
+    const featuredProducts = await NewProduct.find({ isFeatured: true }).limit(5);
+    res.render('landingpage', { featuredProducts });
+  } catch (err) {
+    console.error('Error fetching featured products:', err);
+    res.status(500).send('Server Error');
+  }
   res.render('landingpage');
+});
+
+router.get('/prod/:id', authmid, async (req, res) => {
+  try {
+    const productId = req.params.id;
+    const product = await NewProduct.findById(productId);
+
+    if (!product) {
+      return res.status(404).send('Product not found');
+    }
+
+    if (!req.session.visitedProducts) {
+      req.session.visitedProducts = [];
+    }
+    if (!req.session.visitedProducts.includes(productId)) {
+      req.session.visitedProducts.push(productId);
+    }
+
+    res.render('prod', { product });
+  } catch (error) {
+    console.error('Error fetching product:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.get('/prod/:id', authmid, async (req, res) => {
+  try {
+    const productId = req.params.id;
+    const product = await NewProduct.findById(productId);
+    
+    if (!product) {
+      return res.status(404).send('Product not found');
+    }
+
+    if (!req.session.visitedProducts) {
+      req.session.visitedProducts = [];
+    }
+    if (!req.session.visitedProducts.includes(productId)) {
+      req.session.visitedProducts.push(productId);
+    }
+
+    res.render('prod', { product });
+  } catch (error) {
+    console.error('Error fetching product:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.get('/visited-prod', authmid, async (req, res) => {
+  try {
+    const visitedProductIds = req.session.visitedProducts || [];
+    const visitedProducts = await NewProduct.find({ _id: { $in: visitedProductIds } });
+
+    res.render('visited-prod', { visitedProducts });
+  } catch (error) {
+    console.error('Error fetching visited products:', error);
+    res.status(500).send('Internal Server Error');
+  }
 });
 
 router.get('/home',authmid,function(req,res){
@@ -96,6 +164,29 @@ router.post('/submitContact', async (req, res) => {
     res.status(200).send('Form submitted successfully!');
   } catch (error) {
     console.error('Error submitting contact form:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.get('/prod/:id', authmid, async (req, res) => {
+  try {
+    const productId = req.params.id;
+    const product = await NewProduct.findById(productId);
+    
+    if (!product) {
+      return res.status(404).send('Product not found');
+    }
+
+    if (!req.session.visitedProducts) {
+      req.session.visitedProducts = [];
+    }
+    if (!req.session.visitedProducts.includes(productId)) {
+      req.session.visitedProducts.push(productId);
+    }
+
+    res.render('single-prod', { product });
+  } catch (error) {
+    console.error('Error fetching product:', error);
     res.status(500).send('Internal Server Error');
   }
 });
